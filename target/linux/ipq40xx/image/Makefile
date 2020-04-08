@@ -115,6 +115,19 @@ define Device/glinet_gl-b1300
 endef
 TARGET_DEVICES += glinet_gl-b1300
 
+define Device/glinet_gl-s1300
+	$(call Device/FitImage)
+	DEVICE_TITLE := GL.iNet GL-S1300
+	BOARD_NAME := gl-s1300
+	DEVICE_DTS := qcom-ipq4029-gl-s1300
+	KERNEL_SIZE := 4096k
+	IMAGE_SIZE := 26624k
+	IMAGES := sysupgrade.bin
+	IMAGE/sysupgrade.bin := append-kernel |append-rootfs | pad-rootfs | append-metadata
+	DEVICE_PACKAGES := ipq-wifi-glinet_gl-s1300 kmod-fs-ext4 kmod-mmc kmod-spi-dev
+endef
+TARGET_DEVICES += glinet_gl-s1300
+
 define Device/meraki_mr33
 	$(call Device/FitImage)
 	DEVICE_DTS := qcom-ipq4029-mr33
